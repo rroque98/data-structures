@@ -32,8 +32,6 @@ var binaryTreeMethods = {
   },
   
   contains: function(target) {
-
-
     var traverseTree = function(node) {
       if (target === node.value) {
         return true;
@@ -56,31 +54,20 @@ var binaryTreeMethods = {
   },
   
   depthFirstLog: function(iterator) {
-    debugger;
     var changeDat = function(node) {
       iterator(node.value);
-      let currentNode;
-      if (!Object.keys(node.right).length) {
-        currentNode = node.right;
+      for (var key in node) {
+        if (node[key].value) {
+          changeDat(node[key]);
+        }
       }
-      if (!Object.keys(node.left).length) {
-        currentNode = node.left;
-      }
-      changeDat(currentNode);
     };
     changeDat(this);
-    //   iterator(node.value);
-    //   // if (node.left.value = undefined && node.right.value) {
-    //   //   return;
-    //   // }
-    //   if (node.left === undefined) {
-    //     changeDat(node.right);
-    //   }
-    //   changeDat(node.left);
-    // };
-    // changeDat(this);
   },
 };
+
+
 /*
  * Complexity: What is the time complexity of the above functions?
+ linear O(n)
  */
