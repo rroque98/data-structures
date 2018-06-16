@@ -13,7 +13,6 @@ var treeMethods = {
   },
   
   contains: function(target) {
-    debugger;
     var traverseTree = function(node) {
       if (target === node.value) {
         return true;
